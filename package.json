@@ -1,0 +1,17 @@
+{
+  "name": "aws-lambda-triggers-mono-repo",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jameskyburz/aws-lambda-triggers.git"
+  },
+  "author": {
+    "name": "james kyburz",
+    "email": "james.kyburz@gmail.com"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "install_all": "npx macleod exec npm i",
+    "test": "npx macleod exec npm t"
+  },
+  "private": true
+}

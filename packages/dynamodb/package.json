@@ -1,0 +1,31 @@
+{
+  "name": "aws-lambda-local-dynamodb-trigger",
+  "description": "local dynamodb trigger for aws lambda code",
+  "keywords": [
+    "aws-lambda",
+    "serverless",
+    "dynamodb",
+    "trigger",
+    "development"
+  ],
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JamesKyburz/aws-lambda-local-triggers.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "aws-sdk": "2.422.0",
+    "tap": "12.6.0"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "pretest": "docker kill dynamodb-test; docker run --rm -d --name dynamodb-test -p 8000:8000 dwmkerr/dynamodb",
+    "test": "tap test/test.js",
+    "posttest": "docker kill dynamodb-test 2>&1 >/dev/null &"
+  },
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "aws-lambda-local-sqs-trigger",
+  "description": "local sqs trigger for aws lambda code",
+  "keywords": [
+    "aws-lambda",
+    "serverless",
+    "sqs",
+    "trigger",
+    "development"
+  ],
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JamesKyburz/aws-lambda-local-triggers.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "aws-sdk": "2.422.0",
+    "tap": "12.6.0"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "pretest": "docker kill elasticmq-test; docker run --rm -d --name elasticmq-test -p 9324:9324 jameskyburz/dev-sqs:0.0.8",
+    "test": "tap test/test.js",
+    "posttest": "docker kill elasticmq-test 2>&1 >/dev/null &"
+  },
+  "license": "Apache-2.0"
+}
