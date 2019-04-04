@@ -10,8 +10,8 @@ const loop = trigger({
   queueUrl: 'http://localhost:9324/queue/test',
   sqs,
   waitTimeSeconds: 0.1,
-  trigger (messages) {
-    return fn(messages)
+  trigger ({ Records }) {
+    return fn(Records)
   },
   onEmpty () {
     return onEmpty()

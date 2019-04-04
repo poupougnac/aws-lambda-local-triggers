@@ -27,7 +27,9 @@ module.exports = async ({
       message.body = message.Body
       delete message.Body
     }
-    await trigger(messages)
+    await trigger({
+      Records: [ ...messages ]
+    })
 
     await new Promise((resolve, reject) => {
       sqs.deleteMessageBatch(
